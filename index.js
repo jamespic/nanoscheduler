@@ -1,4 +1,4 @@
-var assert = require('assert')
+var assert = require('nanoassert')
 
 var hasWindow = typeof window !== 'undefined'
 
@@ -22,7 +22,7 @@ function NanoScheduler (hasWindow) {
 }
 
 NanoScheduler.prototype.push = function (cb) {
-  assert.equal(typeof cb, 'function', 'nanoscheduler.push: cb should be type function')
+  assert(typeof cb === 'function', 'nanoscheduler.push: cb should be type function')
 
   this.queue.push(cb)
   this.schedule()
